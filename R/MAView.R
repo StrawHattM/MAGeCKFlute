@@ -41,7 +41,7 @@ MAView <- function(beta, ctrlname="Control",treatname="Treatment", main=NULL,
                     plot.method = c("loess", "lm", "glm", "gam"),
                     filename=NULL, width=5, height=4, ...){
   dd = beta
-  dd[is.na(dd)] = 0
+  dd[is.na(dd)] == 0
   A = rowMeans(dd[,c(ctrlname, treatname)])
   M = rowMeans(dd[,treatname,drop= FALSE])-rowMeans(dd[,ctrlname,drop= FALSE])
   subset = sample(1:length(M), min(c(10000, length(M))))
